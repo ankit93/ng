@@ -1,0 +1,285 @@
+<script>
+var id = GetParameterValues('id');
+$(document).ready(function(){
+  $("#dele").click(function(){
+   $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",			
+            url: 'http://localhost:5030/Service.svc/deleteuser/'+id,
+            dataType: "jsonp",			            
+			error: function(data) {
+				alert("Error:"+data.error);
+			},
+            success: setTimeout(function (data) {			
+				alert("record deleted");
+					window.location.href = '#/getAll';
+            },6000)
+        }); 	
+  });   
+  $("#updated").click(function(){
+  var FirstName=$("#FirstName").val();
+  var LastName=$("#LastName").val();
+  var Email=$("#Email").val();
+  var Phone=$("#Phone").val();
+  var Address=$("#Address").val();
+   $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",			
+            url: 'http://localhost:5030/Service.svc/UpdateUser/'+ id +'/'+ FirstName +'/'+ LastName+'/'+ Email+'/'+ Phone+'/'+Address,
+            dataType: "jsonp",			            
+			error: function(data) {
+				alert("Error:"+data.error);
+			},
+            success: setTimeout(function (data) {			
+				alert("record updated");
+					window.location.href = '#/getAll';
+            },6000)
+        }); 	
+  }); 
+  $("#cncl").click(function(){
+  window.location.href = '#/getAll';
+  });
+  $("#neww").click(function(){
+  
+  window.location.href = '#/reguser';
+  
+  });
+});
+function GetParameterValues(param) {
+var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+for (var i = 0; i < url.length; i++) {
+var urlparam = url[i].split('=');
+if (urlparam[0] == param) {
+return urlparam[1];
+}
+}
+}
+ $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",			
+            url: 'http://localhost:5030/Service.svc/getUserByID/'+id,
+            dataType: "jsonp",			            
+			error: function(data) {
+				alert("Error:"+data.error);
+			},
+            success: function (data) {			
+			$.each(data, function(i, item) {
+			$("#Address").val(data[i].Address);
+			$("#Email").val(data[i].Email);
+			$("#FirstName").val(data[i].FirstName);
+			$("#LastName").val(data[i].LastNAme);
+			$("#Phone").val(data[i].Phone);
+			$("#Idr").append("<li>"+data[i].Id+"</li>");
+			});				
+						
+            }
+        }); 		
+</script>
+<style>
+
+ul{
+list-style: none;
+}
+#table{
+width:500px;
+margin:auto;
+}
+.progress-button {
+	position: relative;
+	display: inline-block;
+	padding: 0 20px;
+	outline: none;
+	border: none;
+	background: #2EB8E6;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 1em;
+	line-height: 2;
+}
+.progress-button[disabled],
+.progress-button[disabled].state-loading {
+	cursor: default;
+}
+
+.progress-button .content {
+	position: relative;
+	display: block;
+}
+
+.progress-button .content::before,
+.progress-button .content::after  {
+	position: absolute;
+	right: 20px;
+	color: #08298A;
+	font-family: "icomoon";
+	opacity: 0;
+	-webkit-transition: opacity 0.3s 0.3s;
+	transition: opacity 0.3s 0.3s;
+}
+
+.progress-button .content::before {
+	content: "Done"; /* Checkmark for success */
+
+}
+
+.progress-button .content::after {
+	content: "Done"; /* Cross for error */
+}
+
+.progress-button.state-success .content::before,
+.progress-button.state-error .content::after {
+	opacity: 1;
+}
+
+.notransition {
+	-webkit-transition: none !important;
+	transition: none !important;
+}
+
+.progress-button .progress {
+	background: #148544;
+}
+
+.progress-button .progress-inner {
+	position: absolute;
+	left: 0;
+	background: #175C73;
+}
+
+.progress-button[data-horizontal] .progress-inner {
+	top: 0;
+	width: 0;
+	height: 100%;
+	-webkit-transition: width 0.3s, opacity 0.3s;
+	transition: width 0.3s, opacity 0.3s;
+}
+
+.progress-button[data-vertical] .progress-inner {
+	bottom: 0;
+	width: 100%;
+	height: 0;
+	-webkit-transition: height 0.3s, opacity 0.3s;
+	transition: height 0.3s, opacity 0.3s;
+}
+
+/* Shrink horizontal */
+/* ====================== */
+
+.progress-button[data-style="shrink"] { /* common for horizontal and vertical */
+	overflow: hidden;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.progress-button[data-style="shrink"][data-horizontal] .content {
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.progress-button[data-style="shrink"][data-horizontal] .content::before,
+.progress-button[data-style="shrink"][data-horizontal] .content::after {
+	top: 100%;
+	right: auto;
+	left: 50%;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.progress-button[data-style="shrink"][data-horizontal].state-loading {
+	-webkit-transform: scaleY(0.3);
+	transform: scaleY(0.3);
+}
+
+.progress-button[data-style="shrink"][data-horizontal].state-loading .content {
+	opacity: 0;
+}
+
+.progress-button[data-style="shrink"][data-horizontal].state-success .content,
+.progress-button[data-style="shrink"][data-horizontal].state-error .content {
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+</style>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/classie.js" ></script>
+<script type="text/javascript" src="js/progressButton.js" ></script>
+<div >
+ <table id="table" >
+ <thead>
+ <th>
+ Id
+ </th>
+ <th>
+  First Name
+ </th>
+ <th>
+  Last Name
+ </th>
+ <th>
+Email
+ </th>
+ <th>
+ Phone 
+ </th>
+ <th>
+ address
+ </th>
+ </thead>
+ <tbody >
+ <tr>
+ <td>
+ <ul id="Idr" >
+ </ul>
+ </td>
+ <td>
+ <input id="FirstName" />
+
+ </td>
+  <td>
+  <input id="LastName" />
+
+ </td>
+  <td>
+ <input id="Email" />
+
+ </td>
+  <td>
+  <input id="Phone" />
+
+ </td>
+  <td>
+   <input id="Address" /> 
+ </td>
+ </tr>
+ <tr>
+ <td></td>
+ <td></td> 
+ <td><button class="progress-button" data-style="shrink" data-horizontal id="neww" >New</button></td>  
+ <td><button class="progress-button" data-style="shrink" data-horizontal id="updated">Update</button></td>
+ <td><button class="progress-button" data-style="shrink" data-horizontal id="dele">Delete</button></td>
+ <td><button class="progress-button" data-style="shrink" data-horizontal id="cncl">Cancel</button></td>
+ </tr> 
+ </tbody>
+ <table>
+ <script>
+[].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
+				new ProgressButton( bttn, {
+					callback : function( instance ) {
+						var progress = 0,
+							interval = setInterval( function() {
+								progress = Math.min( progress + Math.random() * 0.1, 1 );
+								instance._setProgress( progress );
+
+								if( progress === 1 ) {
+									instance._stop(1);
+									clearInterval( interval );
+								}
+							}, 200 );
+					}
+				} );
+			} );
+</script>
+ </div>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--[if lte IE 8]>
+            <script>
+                document.createElement('ng-include');                
+                document.createElement('ng-view');
+
+                // Optionally these for CSS
+                document.createElement('ng:include');                
+                document.createElement('ng:view');
+            </script>
+        <![endif]-->
+<title>VictoryNet Technologies - A Company Specializing in Web and Software Development.</title>
+<meta content="web development,  software development, asp.net websites, asp websites, wordpress, joomla, php, c#, vb.net, javascript, hmtl, css, xhtml, jquery, concrete 5, drupal, photoshop, logo, design, development" name="keywords">
+<link href="/app/css/style.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="/app/css/DDSlider.css">
+<link href="/app/css/colorbox.css" rel="stylesheet" type="text/css" />
+</head>
+<body >
+<div id="containerWrap">
+  <div class="topmain">
+    <div class="header">
+      <div class="logo"> <a href="#/"> <img src="app/images/logo.png" alt="" style="border:0 none;" /> </a> </div>
+      <div class="menu">
+        <ul>
+          <li> <a href="#/ourServices">Our Services</a> </li>
+          <li> <a href="#/ourPortfolio"> Our Portfolio </a> </li>
+          <li> <a href="#/whyOutsourceToUs"> Why OutSource to Us </a> </li>
+          <li> <a href="#/theCompany"> The Company </a> </li>
+          <li> <a href="#/testimonial"> Testimonials </a> </li>
+          <li> <a href="#/reachUs"> Reach Us </a> </li>
+        </ul>
+      </div>
+    </div>
+    <div  class="clear"> </div>
+    <!-- slider --> 
+  </div>
+</div>
+<div id="ContentWrap">
+  <div id="Content">
+    <div class="lftmenuarea">
+      <div class="leftmenu">
+        <ul>
+          <li><a href="#/outsourceToIndia"  > Outsource to india</a></li>
+          <li><a href="#/whyOutsourceToUs"  > Why outsource to VictoryNet</a></li>
+          <li><a href="#/theCompany"  > Advantages to US</a></li>
+          <li><a href="#/offshoreDevelopment"  > Offshore Development</a></li>
+          <li><a href="#/solutionsTechnologies"  > Solutions and Technology</a></li>
+        </ul>
+      </div>
+      <div class="clear"> </div>
+      <div class="lftGreybox">
+        <form name="form1" method="post" action="/form" id="form1">
+          <span class="titleQuickQoute">Get a Quick Quote</span>
+          <ul>
+            <li>Name *</li>
+            <li>
+              <input type="text" value="" id="txtGName" name="txtGName"required="required"/>
+            </li>
+            <li>Email *</li>
+            <li>
+              <input type="email" value="" id="txtGEmail" name="txtGEmail"required="required"/>
+            </li>
+            <li>Company </li>
+            <li>
+              <input type="text" value="" id="txtGCompany" name="txtGCompany"required="required"/>
+            </li>
+            <li>Please briefly describe your project and what you expect from us: *</li>
+            <li>
+              <textarea cols="20" rows="4" class="quoteComment" name="txaDescription" id="txaDescription"required="required"></textarea>
+            </li>
+            <li> </li>
+          </ul>
+          <input type="submit" value="Submit" id="submit" class="button" name="submit"/>
+          <input type="reset" value="Reset" id="reset" class="button" name="reset"/>
+        </form>
+      </div>
+    </div>
+    <ng-view>Loading...</ng-view>
+  </div>
+</div>
+<div id="footerWrap">
+  <div id="footer">
+    <div class="copyrightText"> Copyright &copy; 2013, VictoryNet Technologies. India | <a href="privacy-policy">Privacy Policy</a> | <a href="disclaimer">Disclaimer</a>
+      <div class="w3" style="margin-bottom: 20px"> <a href="" style="text-decoration: none;"> <img src="app/images/vcss-blue.gif" alt="" style="border: 0 none; float: left;" /> <a href="" style="text-decoration: none;"> <img src="app/images/valid-xhtml10-blue.png" alt="" style="border: 0 none; float: left;" /></a> </div>
+    </div>
+    <div class="bottomLinks">
+      <ul>
+        <li><a href="the-company"> The Company</a></li>
+        <li><a href="why-outsource-to-us"> Why Outsource to Us</a></li>
+        <li><a href="our-services">Our Services</a></li>
+        <li><a href="our-portfolio">Our Portfolio</a> </li>
+        <li><a href="case-studies">Case Studies</a> </li>
+        <li><a href="partner-with-us"> Partner with Us</a></li>
+      </ul>
+      <ul>
+        <li><a href="reach-us"> Reach Us</a></li>
+        <li><a href="link">Links</a> </li>
+        <li><a href="sitemap">Site map</a></li>
+        <li><a href="web-design">Web Design</a> </li>
+        <li><a href="web-development">Web Development</a></li>
+      </ul>
+      <ul>
+        <li><a href="yahoo-store-design">Yahoo Store Design</a></li>
+        <li><a href="ecommerce-solution">E-commerce Solutions</a> </li>
+        <li><a href="software-development">Software Development</a> </li>
+        <li><a href="internet-marketing">Internet Marketing</a> </li>
+        <li><a href="branding-identity">Branding &amp; Identity</a></li>
+      </ul>
+      <div class="glink"> <a href="#"> <img src="app/images/linkedin-icon.png" alt="" style="float: left; border: 0 none; margin-left: 3px;" /> </a> <a href="#"> <img src="app/images/facebook_26.png" alt="" style="float: left; border: 0 none; margin-left: 3px;" /> </a> <a href="#"> <img src="app/images/twitter-icon.png" alt="" style="float: left; border: 0 none; margin-left: 3px;" /> </a> <a href="#"> <img src="app/images/skype-icon.png" alt="" style="float: left; border: 0 none; margin-left: 3px;" /> </a> </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="require.js" data-main="main" ></script>
+</body>
+</html>

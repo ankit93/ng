@@ -1,0 +1,93 @@
+<script>
+ $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",			
+            url: 'http://localhost:5030/Service.svc/getAll',
+            dataType: "jsonp",			            
+			error: function(data) {
+				alert("Error:"+data.error);
+			},
+            success: function (data) {			
+			$.each(data, function(i, item) {
+			$("#Address").append("<li>"+data[i].Address+"</li>");
+			$("#Email").append("<li>"+data[i].Email+"</li>");
+			$("#FirstName").append("<li>"+data[i].FirstName+"</li>");
+			$("#LastName").append("<li>"+data[i].LastNAme+"</li>");
+			$("#Phone").append("<li>"+data[i].Phone+"</li>");
+			$("#Idr").append("<li>"+data[i].Id+"</li>");
+			$("#edit").append("<li><a  href='#/edit?id="+data[i].Id+"'>Edit</a></li>");			
+			});				
+						
+            }
+        }); 
+		
+</script>
+<style>
+ul{
+list-style: none;
+}
+#table{
+width:600px;
+margin:auto;
+}
+</style>
+ <table id="table" >
+ <thead>
+ <th>
+ Id
+ </th>
+ <th>
+  First Name
+ </th>
+ <th>
+  Last Name
+ </th>
+ <th>
+Email
+ </th>
+ <th>
+ Phone 
+ </th>
+ <th>
+ address
+ </th>
+ </thead>
+ <tr>
+ <td>
+ <ul id="Idr">
+</ul>
+ </td>
+ <td>
+ <ul id="FirstName">
+</ul>
+ </td>
+  <td>
+  <ul id="LastName">
+</ul>
+ </td>
+  <td>
+ <ul id="Email">
+</ul>
+ </td>
+  <td>
+  <ul id="Phone">
+</ul>
+ </td>
+  <td>
+   <ul id="Address">  
+</ul>
+ </td>
+ <td>
+ <ul id="edit">  
+ </ul>
+ </td> 
+ </tr>
+ <table>
+ 
+ 
+ 
+
+
+
+
+

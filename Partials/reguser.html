@@ -1,0 +1,22 @@
+ <script>
+  $("#back").click(function(){
+  window.location.href = '#/getAll';
+  });
+   $("#save").click(function(){
+   alert("Record Saved");
+  window.location.href = '#/getAll';
+  });
+ </script>
+ 
+ <div ng-controller="Controller">
+      <form novalidate class="simple-form">
+			FName: <input type="text" ng-model="user.FirstName" /><br /><br />
+			lName: <input type="text" ng-model="user.LastNAme" /><br /><br />
+			E-mail: <input type="email" ng-model="user.Email" /><br /><br />
+			Address: <input type="text" ng-model="user.Address" /><br /><br />
+			Phone: <input type="text" ng-model="user.Phone" /><br /><br />
+			<button id="back">Back</button>
+        <button ng-click="reset()">Cancel</button>
+        <button id="save" ng-click="update(user)">SAVE</button>
+      </form>      
+    </div>
