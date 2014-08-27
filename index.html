@@ -13,11 +13,15 @@
         <![endif]-->
 <title>VictoryNet Technologies - A Company Specializing in Web and Software Development.</title>
 <meta content="web development,  software development, asp.net websites, asp websites, wordpress, joomla, php, c#, vb.net, javascript, hmtl, css, xhtml, jquery, concrete 5, drupal, photoshop, logo, design, development" name="keywords">
-<link href="/app/css/style.css" rel="stylesheet" type="text/css" />
-<link type="text/css" rel="stylesheet" href="/app/css/DDSlider.css">
-<link href="/app/css/colorbox.css" rel="stylesheet" type="text/css" />
+<link href="app/css/style.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="app/css/DDSlider.css">
+<link href="app/css/colorbox.css" rel="stylesheet" type="text/css" />
 </head>
 <body >
+
+<div id="mainPage" ng-cloak style="display:none;" ng-controller="app.controller.rootLayout">
+
+</div>
 <div id="containerWrap">
   <div class="topmain">
     <div class="header">
@@ -78,6 +82,15 @@
       </div>
     </div>
     <ng-view><img src="../images/ajax-load.gif"/></ng-view>
+     <div ng-hide="isLoggedIn()" id="Loginview" ng-controller="app.modules.login">
+       <div id="loginFrm" data-ng-submit="setCredentials()"  data-ng-form-enter="setCredentials({reload:true})">
+                    <span>Username: </span>
+                    <input id="loginEmail" name="loginEmail" type="text" placeholder="E-mail Address" data-ng-model="loginform.email1" required /><br><br>
+                    <span>Password: </span>
+                    <input id="loginPw" name="loginPw" type="password" placeholder="Password" data-ng-model="loginform.pass1" required /><br><br>
+                    <input type="submit" ng-click="setCredentials()" class="btn btn-success primaryColor submitButton" value="Sign in"/>
+       </div>
+    </div>
   </div>
 </div>
 <div id="footerWrap">

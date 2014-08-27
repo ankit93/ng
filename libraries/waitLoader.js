@@ -1,6 +1,6 @@
-var waitLoaderLibrary = angular.module('kmApp.libraries.waitLoader', []);
+var waitLoaderLibrary = angular.module('app.libraries.waitLoader', []);
 
-waitLoaderLibrary.service('kmApp.libraries.waitLoader', [
+waitLoaderLibrary.service('app.libraries.waitLoader', [
     function () {
         var promises = {};
         return {
